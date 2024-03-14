@@ -72,8 +72,10 @@ const TypeHead = () => {
                     options={options}
                     placeholder="Choose a state..."
                     selected={singleSelections}
+                    maxResults={8}
                 />
             </Form.Group>
+
             <Form.Group className="mt-3">
                 <Form.Label>Multiple Selections</Form.Label>
                 <Typeahead
@@ -84,6 +86,7 @@ const TypeHead = () => {
                     options={options}
                     placeholder="Choose several states..."
                     selected={multiSelections}
+                    maxResults={8}
                 />
             </Form.Group>
         </>
