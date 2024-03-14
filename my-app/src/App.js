@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import TypeHead from "./typehead/typehead";
 import Typeheadexample from "./typehead/typeheadexample";
 
 function App() {
