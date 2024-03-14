@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {Form} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 const TypeaheadExample = () => {
     const [options, setOptions] = useState([]);
