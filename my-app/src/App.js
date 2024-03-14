@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+const countries = [
+  'Afghanistan',
+  'Albania',
+  'Algeria',
+  // Add more countries here...
+];
+
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    const matchingCountries = countries.filter(country =>
+        country.toLowerCase().startsWith(value.toLowerCase())
+    );
+
+    setSuggestions(matchingCountries);
+  };
+
+  const handleSelect = (value) => {
+    setSearchTerm(value);
+    setSuggestions([]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="container">
+        <input
+            type="text"
+            value={searchTerm}
+            onChange={handleChange}
+            placeholder="Search..."
+            className="search-input"
+        />
+        <ul className="suggestions">
+          {suggestions.map((country, index) => (
+              <li key={index} onClick={() => handleSelect(country)}>{country}</li>
+          ))}
+        </ul>
+      </div>
   );
 }
 
